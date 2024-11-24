@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+  <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" />
+  <title>Register</title>
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style>
+    /* Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1000; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+      justify-content: center; /* Center modal content vertically */
+      align-items: center; /* Center modal content horizontally */
+    }
+    .modal-content {
+      background-color: #fefefe;
+      border: 1px solid #888;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      width: 300px; /* Set a width for the modal */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="flex items-center justify-center min-h-screen bg-slate-50">
+    <div class="relative flex max-w-[480px] flex-col bg-slate-50 p-4 rounded-xl shadow-lg">
+      <div class="flex items-center bg-slate-50 p-4 pb-2 justify-center">
+        <h2 class="text-[#0e141b] text-lg font-bold leading-tight tracking-[-0.015em]">
+          Register
+        </h2>
+      </div>
+
+      <form id="registrationForm" role="form" method="post">
+
+        <!-- Name Field -->
+        <div class="flex flex-wrap items-end gap-4 px-4 py-3">
+          <label class="flex flex-col min-w-40 flex-1">
+            <p class="text-[#0e141b] text-base font-medium leading-normal pb-2">First Name</p>
+            <input placeholder="First name"
+                   name="first_name"
+                   class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#0e141b] focus:outline-0 focus:ring-0 border border-[#d0dbe7] bg-slate-50 focus:border-[#d0dbe7] h-14 placeholder:text-[#4e7297] p-[15px] text-base font-normal leading-normal"
+                   required />
+          </label>
+        </div>
+  
+        <!-- Last Name Field -->
+        <div class="flex flex-wrap items-end gap-4 px-4 py-3">
+          <label class="flex flex-col min-w-40 flex-1">
+            <p class="text-[#0e141b] text-base font-medium leading-normal pb-2">Last Name</p>
+            <input placeholder="Last name"
+                   name="last_name"
+                   class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#0e141b] focus:outline-0 focus:ring-0 border border-[#d0dbe7] bg-slate-50 focus:border-[#d0dbe7] h-14 placeholder:text-[#4e7297] p-[15px] text-base font-normal leading-normal"
+                   required />
+          </label>
+        </div>
+  
+        <!-- Email Field -->
+        <div class="flex flex-wrap items-end gap-4 px-4 py-3">
+          <label class="flex flex-col min-w-40 flex-1">
+            <p class="text-[#0e141b] text-base font-medium leading-normal pb-2">Email</p>
+            <input type="email" placeholder="Email"
+                   name="email"
+                   class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#0e141b] focus:outline-0 focus:ring-0 border border-[#d0dbe7] bg-slate-50 focus:border-[#d0dbe7] h-14 placeholder:text-[#4e7297] p-[15px] text-base font-normal leading-normal"
+                   required />
+          </label>
+        </div>
+  
+        <!-- Phone Number Field -->
+        <div class="flex flex-wrap items-end gap-4 px-4 py-3">
+          <label class="flex flex-col min-w-40 flex-1">
+            <p class="text-[#0e141b] text-base font-medium leading-normal pb-2">Phone Number</p>
+            <input type="tel" placeholder="Phone number"
+                   name="phone_number"
+                   class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#0e141b] focus:outline-0 focus:ring-0 border border-[#d0dbe7] bg-slate-50 focus:border-[#d0dbe7] h-14 placeholder:text-[#4e7297] p-[15px] text-base font-normal leading-normal"
+                   required />
+          </label>
+        </div>
+  
+        <!-- Job Title Field -->
+        <div class="flex flex-wrap items-end gap-4 px-4 py-3">
+          <label class="flex flex-col min-w-40 flex-1">
+            <p class="text-[#0e141b] text-base font-medium leading-normal pb-2">Job Title</p>
+            <select name="job_title" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#0e141b] focus:outline-0 focus:ring-0 border border-[#d0dbe7] bg-slate-50 focus:border-[#d0dbe7] h-14 placeholder:text-[#4e7297] p-[15px] text-base font-normal leading-normal" required>
+              <option value="">Select one</option>
+              <option value="student">Student</option>
+              <option value="software dev">Software Dev</option>
+            </select>
+          </label>
+        </div>
+  
+        <!-- Department Field -->
+        <div class="flex flex-wrap items-end gap-4 px-4 py-3">
+          <label class="flex flex-col min-w-40 flex-1">
+            <p class="text-[#0e141b] text-base font-medium leading-normal pb-2">Department</p>
+            <select name="department" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#0e141b] focus:outline-0 focus:ring-0 border border-[#d0dbe7] bg-slate-50 focus:border-[#d0dbe7] h-14 placeholder:text-[#4e7297] p-[15px] text-base font-normal leading-normal" required>
+              <option value="">Select one</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Cyber Security">Cyber Security</option>
+              <option value="Software Engineering">Software Engineering</option>
+            </select>
+          </label>
+        </div>
+  
+        <!-- Submit Button -->
+        <div class="flex px-4 py-3">
+          <button type="submit" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 flex-1 bg-[#3289e7] text-slate-50 text-base font-bold leading-normal tracking-[0.015em]">
+            Complete registration
+          </button>
+        </div>
+
+      </form>
+
+      <!-- Modal for Success Message -->
+      <div id="successModal" class="modal">
+        <div class="modal-content">
+          <span id="modalClose" class="cursor-pointer text-red-600 float-right">&times;</span>
+          <p class="text-green-600 text-base font-medium leading-normal">Registration successful!</p>
+        </div>
+      </div>
+
+      <script>
+        document.querySelector("#registrationForm").addEventListener("submit", function(event) {
+          
+          const fields = event.target.querySelectorAll("input[required], select[required]");
+          let formIsValid = true;
+      
+          fields.forEach(field => {
+            if (!field.value.trim()) {
+              field.classList.add("border-red-500"); // Highlight empty fields
+              formIsValid = false;
+            } else {
+              field.classList.remove("border-red-500");
+            }
+          });
+      
+          if (!formIsValid) {
+            alert("Please fill in all required fields.");
+            return;
+          }
+      
+          // Show the success modal
+          const modal = document.getElementById("successModal");
+          modal.style.display = "flex"; 
+      
+        
+          const closeModalAfter = 3000;
+          setTimeout(function() {
+            modal.style.display = "none"; 
+            window.location.href = "{{ url_for('home') }}"; 
+          }, closeModalAfter);
+        });
+      </script>
+      
+      
+    </div>
+  </div>
+</body>
+</html>
