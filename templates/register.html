@@ -135,36 +135,40 @@
 
       <script>
         document.querySelector("#registrationForm").addEventListener("submit", function(event) {
-          
-          const fields = event.target.querySelectorAll("input[required], select[required]");
-          let formIsValid = true;
-      
-          fields.forEach(field => {
-            if (!field.value.trim()) {
-              field.classList.add("border-red-500"); // Highlight empty fields
-              formIsValid = false;
-            } else {
-              field.classList.remove("border-red-500");
+            // Prevent default form submission
+            event.preventDefault();
+            
+            const fields = event.target.querySelectorAll("input[required], select[required]");
+            let formIsValid = true;
+    
+            // Validate each required field
+            fields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.classList.add("border-red-500"); // Highlight empty fields
+                    formIsValid = false;
+                } else {
+                    field.classList.remove("border-red-500");
+                }
+            });
+    
+            if (!formIsValid) {
+                alert("Please fill in all required fields.");
+                return; // Stop further execution if the form is invalid
             }
-          });
-      
-          if (!formIsValid) {
-            alert("Please fill in all required fields.");
-            return;
-          }
-      
-          // Show the success modal
-          const modal = document.getElementById("successModal");
-          modal.style.display = "flex"; 
-      
-        
-          const closeModalAfter = 3000;
-          setTimeout(function() {
-            modal.style.display = "none"; 
-            window.location.href = "{{ url_for('home') }}"; 
-          }, closeModalAfter);
+    
+            // Show the success modal
+            const modal = document.getElementById("successModal");
+            modal.style.display = "flex";
+    
+            // Close modal and redirect after a timeout
+            const closeModalAfter = 3000;
+            setTimeout(function() {
+                modal.style.display = "none";
+                window.location.href = "{{ url_for('home') }}"; // Redirect to the home route
+            }, closeModalAfter);
         });
-      </script>
+    </script>
+    
       
       
     </div>
